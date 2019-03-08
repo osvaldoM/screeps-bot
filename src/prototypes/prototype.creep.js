@@ -7,6 +7,13 @@ Creep.prototype.collectEnergyFromSource = function (source) {
     }
 };
 
+Creep.prototype.repairWall = function (wall) {
+    if (this.repair(wall) === ERR_NOT_IN_RANGE) {
+        return this.moveTo(wall, { visualizePathStyle: { stroke: '#ffffff' } });
+    } else {
+        return false;
+    }
+};
 Creep.prototype.closestActiveSourceFromSpawnByRange = function () {
     if (this.memory.closestActiveSourceId) {
         return this.room.getActiveSources().find(source => source.id === this.memory.closestActiveSourceId);

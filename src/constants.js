@@ -11,8 +11,8 @@ const HOME_ROOM_NAME = 'W16N18';
 
 const ROLES = [
     new Role('harvester', 3, roleHarvester),
-    new Role('upgrader', 5, roleUpgrader),
-    new Role('builder', 1, roleBuilder),
+    new Role('upgrader', 2, roleUpgrader),
+    new Role('builder', 0, roleBuilder),
     new Role('repairer', 1, roleRepairer),
     new Role('wallRepairer', 1, roleWallRepairer),
     new Role('remoteHarvester', 0, roleRemoteHarvester),

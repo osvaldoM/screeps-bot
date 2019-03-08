@@ -14,7 +14,9 @@ module.exports = {
         "FIND_SOURCES_ACTIVE": true,
         "FIND_MY_STRUCTURES": true,
         "FIND_CONSTRUCTION_SITES": true,
-        "STRUCTURE_TOWER": true
+        "STRUCTURE_TOWER": true,
+        "FIND_STRUCTURES": true,
+        "STRUCTURE_WALL": true,
     },
     "rules": {
         "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["creep"] }],
