@@ -10,6 +10,7 @@ const spawnManager = require('./managers/spawnManager');
 global.HOME_ROOM_NAME = constants.HOME_ROOM_NAME;
 global.CACHE = new RoomCache(Game.rooms[constants.HOME_ROOM_NAME]);
 global.ROLES = constants.ROLES;
+global.MINIMUM_COST_FOR_CREEP = constants.MINIMUM_COST_FOR_CREEP;
 
 CACHE.getMyTowers().forEach((tower) => {
     const closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);

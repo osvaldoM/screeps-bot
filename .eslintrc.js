@@ -17,6 +17,7 @@ module.exports = {
         "STRUCTURE_TOWER": true,
         "FIND_STRUCTURES": true,
         "STRUCTURE_WALL": true,
+        "BODYPART_COST": true,
     },
     "rules": {
         "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["creep"] }],

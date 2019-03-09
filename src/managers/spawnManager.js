@@ -1,10 +1,8 @@
 function createCreep(spawn, role) {
     const availableEnergy = spawn.room.energyAvailable;
-    console.log('requested', role.name);
-    if (availableEnergy < 200) {
+    if (availableEnergy < MINIMUM_COST_FOR_CREEP) {
         return;
     }
-    console.log('trying to create', role.name);
     if (role.name === 'harvester') {
         spawn.createWorkerCreep(role.name);
     } else if (role.name === 'upgrader') {

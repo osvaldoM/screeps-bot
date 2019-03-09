@@ -8,6 +8,7 @@ const roleRemoteHarvester = require('./roles/role.remoteHarvester');
 const Role = require('./roles/role');
 
 const HOME_ROOM_NAME = 'W16N18';
+const MINIMUM_COST_FOR_CREEP = BODYPART_COST.move + BODYPART_COST.work + BODYPART_COST.carry;
 
 const ROLES = [
     new Role('harvester', 3, roleHarvester),
@@ -22,4 +23,5 @@ const ROLES = [
 module.exports = () => ({
     HOME_ROOM_NAME,
     ROLES,
+    MINIMUM_COST_FOR_CREEP,
 });
