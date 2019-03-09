@@ -3,20 +3,10 @@ function createCreep(spawn, role) {
     if (availableEnergy < MINIMUM_COST_FOR_CREEP) {
         return;
     }
-    if (role.name === 'harvester') {
-        spawn.createWorkerCreep(role.name);
-    } else if (role.name === 'upgrader') {
-        spawn.createWorkerCreep(role.name);
-    } else if (role.name === 'builder') {
-        spawn.createSimpleCreep(availableEnergy, role.name);
-    } else if (role.name === 'repairer') {
-        spawn.createSimpleCreep(availableEnergy, role.name);
-    } else if (role.name === 'wallRepairer') {
-        spawn.createSimpleCreep(availableEnergy, role.name);
-    } else if (role.name === 'attacker') {
-        spawn.createAttackerCreep();
-    } else if (role.name === 'remoteHarvester') {
-        spawn.createRemoteHarvesterCreep(HOME_ROOM_NAME, 'W15N18', 0);
+    if (role.name === 'remoteHarvester') {
+        spawn.createRemoteHarvesterCreep(role, HOME_ROOM_NAME, 'W15N18', 0);
+    } else {
+        spawn.createSimpleeCreep(role);
     }
 }
 module.exports.run = (spawn) => {

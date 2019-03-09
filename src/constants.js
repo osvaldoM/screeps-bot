@@ -11,13 +11,13 @@ const HOME_ROOM_NAME = 'W16N18';
 const MINIMUM_COST_FOR_CREEP = BODYPART_COST.move + BODYPART_COST.work + BODYPART_COST.carry;
 
 const ROLES = [
-    new Role('harvester', 3, roleHarvester),
-    new Role('upgrader', 2, roleUpgrader),
-    new Role('builder', 0, roleBuilder),
-    new Role('repairer', 1, roleRepairer),
-    new Role('wallRepairer', 1, roleWallRepairer),
-    new Role('remoteHarvester', 0, roleRemoteHarvester),
-    new Role('attacker', 0, roleAttacker),
+    new Role('harvester', 4, roleHarvester, [WORK, WORK, CARRY, CARRY, MOVE]),
+    new Role('upgrader', 3, roleUpgrader, [WORK, CARRY, CARRY, MOVE]),
+    new Role('builder', 1, roleBuilder, [WORK, CARRY, MOVE]),
+    new Role('repairer', 1, roleRepairer, [WORK, CARRY, MOVE, MOVE]),
+    new Role('wallRepairer', 1, roleWallRepairer, [WORK, CARRY, CARRY, MOVE]),
+    new Role('remoteHarvester', 0, roleRemoteHarvester, [WORK, CARRY, CARRY, CARRY, MOVE, MOVE]),
+    new Role('attacker', 0, roleAttacker, [WORK, CARRY, MOVE]),
 ];
 
 module.exports = () => ({
