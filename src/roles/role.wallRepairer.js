@@ -10,7 +10,7 @@ global.initialHitPointsPercentage = Memory.initialHitPointsPercentage || 0.0001;
 // So we don't spend all our energy on walls.
 const maxDesiredHitPointsPercentage = 1; // 3M
 
-const findWallsThatShouldBeRepaired = (walls, minHitPointsPercentage) => walls.find((wall) => {
+const findWallThatShouldBeRepaired = (walls, minHitPointsPercentage) => walls.find((wall) => {
     const hitPointsPercentage = (wall.hits / wall.hitsMax) * 100;
     return hitPointsPercentage < minHitPointsPercentage;
 });
@@ -27,11 +27,9 @@ const roleWallRepairer = {
         }
 
         if (creep.memory.repairing) {
-            const walls = creep.room.find(FIND_STRUCTURES, {
-                filter: structure => structure.structureType === STRUCTURE_WALL,
-            });
-            for (; global.initialHitPointsPercentage < maxDesiredHitPointsPercentage; global.initialHitPointsPercentage += 0.001) {
-                const wallThatNeedsRepair = findWallsThatShouldBeRepaired(walls, global.initialHitPointsPercentage);
+            const walls = creep.room.getWalls();
+            for (; global.initialHitPointsPercentage < maxDesiredHitPointsPercentage; global.initialHitPointsPercentage += 0.0001) {
+                const wallThatNeedsRepair = findWallThatShouldBeRepaired(walls, global.initialHitPointsPercentage);
                 if (wallThatNeedsRepair) {
                     Memory.initialHitPointsPercentage = global.initialHitPointsPercentage;
                     return creep.repairWall(wallThatNeedsRepair);

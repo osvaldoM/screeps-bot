@@ -5,3 +5,12 @@ Room.prototype.getActiveSources = function () {
 
     return global.activeSources;
 };
+
+Room.prototype.getWalls = function () {
+    if (global.wallsInRoom === undefined) {
+        global.wallsInRoom = this.find(FIND_STRUCTURES, {
+            filter: structure => structure.structureType === STRUCTURE_WALL,
+        });
+    }
+    return global.wallsInRoom;
+};
