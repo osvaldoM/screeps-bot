@@ -15,7 +15,7 @@ module.exports = class RoomCache {
 
     getMyTowers() {
         if (this.myTowers === undefined) {
-            this.myTowers = this.getMyStructures().filter(structure => structure.structureType == STRUCTURE_TOWER);
+            this.myTowers = this.getMyStructures().filter(structure => structure.structureType === STRUCTURE_TOWER);
         }
         return this.myTowers;
     }

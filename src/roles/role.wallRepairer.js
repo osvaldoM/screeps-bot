@@ -7,14 +7,15 @@ Let's set our min HP threshold as 300
  */
 global.initialHitPointsPercentage = Memory.initialHitPointsPercentage || 0.0001;
 
-// So we don't spend all our energy on walls.
+// So we don't spend unreasonable amounts of energy on walls.
 const maxDesiredHitPointsPercentage = 1; // 3M
 
-const findWallThatShouldBeRepaired = (walls, minHitPointsPercentage) => walls.find((wall) => {
+const findWallThatNeedsRepair = (walls, minHitPointsPercentage) => walls.find((wall) => {
     const hitPointsPercentage = (wall.hits / wall.hitsMax) * 100;
     return hitPointsPercentage < minHitPointsPercentage;
 });
 
+// Should consider using towers rather than creeps for repairing walls.
 const roleWallRepairer = {
     run: (creep) => {
         if (creep.memory.repairing && creep.carry.energy === 0) {
@@ -29,11 +30,12 @@ const roleWallRepairer = {
         if (creep.memory.repairing) {
             const walls = creep.room.getWalls();
             for (; global.initialHitPointsPercentage < maxDesiredHitPointsPercentage; global.initialHitPointsPercentage += 0.0001) {
-                const wallThatNeedsRepair = findWallThatShouldBeRepaired(walls, global.initialHitPointsPercentage);
+                const wallThatNeedsRepair = findWallThatNeedsRepair(walls, global.initialHitPointsPercentage);
                 if (wallThatNeedsRepair) {
                     Memory.initialHitPointsPercentage = global.initialHitPointsPercentage;
                     return creep.repairWall(wallThatNeedsRepair);
                 }
+                roleHarvester.run(creep);
             }
         } else {
             creep.collectEnergyFromSource();

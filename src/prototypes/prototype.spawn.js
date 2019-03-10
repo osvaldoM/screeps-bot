@@ -1,5 +1,3 @@
-const Roles = require('../constants')();
-
 StructureSpawn.prototype.createRemoteHarvesterCreep = function (role, homeRoom, targetRoom, sourceIndex) {
     if (!homeRoom || !targetRoom || typeof sourceIndex === 'undefined') {
         return;

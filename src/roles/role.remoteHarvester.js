@@ -1,6 +1,5 @@
 const roleRemoteHarvester = {
 
-    /** @param {Creep} creep * */
     run: (creep) => {
         if (creep.memory.storingEnergy && creep.carry.energy === 0) {
             creep.memory.storingEnergy = false;
@@ -26,12 +25,10 @@ const roleRemoteHarvester = {
             } else {
                 creep.goBackHome();
             }
+        } else if (creep.isOverseas()) {
+            creep.collectEnergyFromSource(creep.room.find(FIND_SOURCES)[creep.memory.sourceIndex]);
         } else {
-            if (creep.isOverseas()) {
-                creep.collectEnergyFromSource(creep.room.find(FIND_SOURCES)[creep.memory.sourceIndex]);
-            } else {
-                creep.goOverseas();
-            }
+            creep.goOverseas();
         }
     },
 };
