@@ -13,7 +13,7 @@ npm install
 
 ## deployment
 
-- rename **.screeps.json.example** to **creeps.json**
+- rename **.screeps.json.example** to **.screeps.json**
 
 - update the file according to your login credentials
 
