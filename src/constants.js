@@ -13,7 +13,7 @@ const MINIMUM_COST_FOR_CREEP = BODYPART_COST.move + BODYPART_COST.work + BODYPAR
 const ROLES = [
     new Role('harvester', 4, roleHarvester, [WORK, WORK, CARRY, CARRY, MOVE]),
     new Role('upgrader', 3, roleUpgrader, [WORK, CARRY, CARRY, MOVE]),
-    new Role('builder', 3, roleBuilder, [WORK, CARRY, CARRY, MOVE]),
+    new Role('builder', 0, roleBuilder, [WORK, CARRY, CARRY, MOVE]),
     new Role('repairer', 1, roleRepairer, [WORK, CARRY, MOVE, MOVE]),
     new Role('wallRepairer', 1, roleWallRepairer, [WORK, CARRY, CARRY, MOVE]),
     new Role('remoteHarvester', 0, roleRemoteHarvester, [WORK, CARRY, CARRY, CARRY, MOVE, MOVE]),
