@@ -1,7 +1,7 @@
 # screeps-bot
 This is yet another AI for the MMO strategy game for programmers, [screeps](https://screeps.com)
 
-I'm still working to generalize the code to run efficiently with different room designs and multi-rooms environments, but at this point, it should work reasonably well on a single room.
+I'm still working to generalize the code to run efficiently with different room designs and multi-room environments, but at this point, the code should work reasonably well on a single room.
 
 ## Installation
 
