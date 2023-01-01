@@ -16,8 +16,8 @@
     "grunt": "^1.0.3",
     "gulp": "^4.0.0",
     "gulp-screeps": "^1.0.8",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "grunt-screeps": "^1.4.0",
